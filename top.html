@@ -139,7 +139,7 @@
             <span class="close-icon" onclick="closeVideoModal()">&times;</span>
             <div class="video-wrapper">
                 <video id="videoPlayer" controls autoplay>
-                    <source id="videoSource" src="video1.mp4" type="video/mp4">
+                    <source id="videoSource" src="air/video1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -156,7 +156,7 @@
                 var videoModal = document.getElementById('videoModal');
                 var videoPlayer = document.getElementById('videoPlayer');
                 var videoSource = document.getElementById('videoSource');
-                videoSource.src = 'video1.mp4' + videoSrc;
+                videoSource.src = 'air/video1.mp4' + videoSrc;
                 videoPlayer.load();
                 videoModal.style.display = 'flex';
             }
