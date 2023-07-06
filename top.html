@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Hostess Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .logo {
+            max-width: 80px;
+            height: auto;
+        }
+
+        .banner {
+            width: 100%;
+            height: auto;
+            max-height: 100vh;
+        }
+
+        .about-section {
+            background-color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .question-buttons {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .question-button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .video-modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (height divided by width) */
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Air Hostess Company</h1>
+        <img class="logo" src="https://img.freepik.com/free-vector/airlines-company-logo-template_1043-164.jpg" alt="Company Logo">
+    </header>
+
+    <img class="banner" src="https://jtaviation.in/blog/images/252-252651.jpg" alt="Banner Image">
+
+    <div class="about-section">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet eu lectus eget commodo. Proin gravida luctus metus, in ultricies velit eleifend ac. Quisque id nisl sit amet purus pulvinar scelerisque. Sed inex nec sapien vestibulum pellentesque et ac risus. In hac habitasse platea dictumst. Phasellus eu eleifend est. Duis sed dictum erat. Nullam sed purus vitae diam congue vestibulum vel id elit. Quisque consectetur diam nec ex fermentum, a finibus mauris suscipit. Sed finibus volutpat mauris, vel ultrices urna. Nam venenatis, orci a ultrices aliquet, enim elit sagittis urna, sit amet lacinia lorem sem sit amet mi.</p>
+    </div>
+
+    <div class="question-buttons">
+        <button class="question-button" onclick="openVideoModal('video1.mp4')">Question 1: Lorem ipsum dolor sit amet?</button>
+        <button class="question-button" onclick="openVideoModal('video1.mp4')">Question 2: Sed do eiusmod tempor incididunt?</button>
+        <button class="question-button" onclick="openVideoModal('video1.mp4')">Question 3: Ut enim ad minim veniam?</button>
+    </div>
+
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <span class="close-icon" onclick="closeVideoModal()">&times;</span>
+            <div class="video-wrapper">
+                <video id="videoPlayer" controls autoplay>
+                    <source id="videoSource" src="video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Air Hostess Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openVideoModal(videoSrc) {
+            if (videoSrc) {
+                var videoModal = document.getElementById('videoModal');
+                var videoPlayer = document.getElementById('videoPlayer');
+                var videoSource = document.getElementById('videoSource');
+                videoSource.src = 'path/to/videos/' + videoSrc;
+                videoPlayer.load();
+                videoModal.style.display = 'flex';
+            }
+        }
+
+        function closeVideoModal() {
+            var videoModal = document.getElementById('videoModal');
+            var videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+            videoModal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
